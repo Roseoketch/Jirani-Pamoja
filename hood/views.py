@@ -47,6 +47,8 @@ def new_neighbor(request):
 @login_required(login_url='/accounts/login/')
 def create_profile(request):
     current_user = request.user
+    if current_user.is_authenticated():
+        return HttpResponseRedirect('/')
     if request.method == 'POST':
         form = CreateProfileForm(request.POST,request.FILES)
         if form.is_valid():
@@ -56,7 +58,7 @@ def create_profile(request):
             return redirect(view_profile)
     else:
         form = CreateProfileForm()
-    return render(request,'profile/create.html',{"upload_form":form})
+    return render(request,'profile.html',{"upload_form":form})
 
 
 @login_required(login_url='/accounts/login/')
@@ -74,6 +76,7 @@ def neighbor(request):
     neighbor.occupants_count = count
     neighbor.save()
     return redirect('view_neighbor')
+
 
 @login_required(login_url='/accounts/login/')
 def new_post(request):
