@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http  import HttpResponse
+from django.http  import HttpResponseRedirect
 import datetime as dt
 from django.contrib.auth.decorators import login_required
 from .models import MyUser,Neighbor,Post,Business
@@ -64,6 +64,7 @@ def create_profile(request):
 @login_required(login_url='/accounts/login/')
 def neighbor(request):
     current_user = request.user
+
     myuser = MyUser.get_user()
     posts = Post.get_post()
     count = 0
@@ -81,6 +82,8 @@ def neighbor(request):
 @login_required(login_url='/accounts/login/')
 def new_post(request):
     current_user = request.user
+    if current_user.is_authenticated():
+        return HttpResponseRedirect('request')
     myuser = MyUser.get_user()
     for user in myuser:
         if user.user.id == current_user.id:
@@ -92,5 +95,5 @@ def new_post(request):
                     post.save()
                     return redirect(index)
             else:
-                post_form = PostForm()
-            return render(request,'post.html',{"post_form":post_form})
+                form = PostForm()
+            return render(request,'post.html',{"form":post_form})
