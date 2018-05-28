@@ -29,9 +29,9 @@
       {% if user.is_authenticated %}
       <a class="nav-item nav-link active" href="/">Home</a>
       <a class="nav-item nav-link active" href="{% url 'profile' %}">Profile</a>
-      <a class="nav-item nav-link active" href="{% url 'hood' %}">Neighbor</a>
-      <a class="nav-item nav-link active" href="{% url 'biz' %}">Business</a>
-      <a class="nav-item nav-link active" href="/logout">LogOut</a> {% else %}
+      <a class="nav-item nav-link active" href="{% url 'jirani' %}">Neighbor</a>
+      <a class="nav-item nav-link active" href="{% url 'business' %}">Business</a>
+      <a class="nav-item nav-link active" href="/logout">logout</a> {% else %}
       <p><a class="nav-item nav-link active" href="{% url 'auth_login' %}">LogIn</a> or <a href="/accounts/register/" class="nav-item nav-link active">Sign Up</a></p>
       {% endif %}
     </div>

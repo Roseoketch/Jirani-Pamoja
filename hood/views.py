@@ -68,13 +68,13 @@ def neighbor(request):
     posts = Post.get_post()
     count = 0
     jirani= Neighbor.get_neighbor()
-    neighbor = get_object_or_404(Neighbor)
-    for jirani in neighbor:
+    neighbor_2 = get_object_or_404(Neighbor)
+    for neighbor_2 in neighbor:
         for user in myuser:
-            if user.neighbor.id == jirani.id:
+            if user.neighbor.id == neighbor_2.id:
                 count += 1
-    neighbor.occupants_count = count
-    neighbor.save()
+    jirani.occupants_count = count
+    jirani.save()
     return redirect('view_neighbor')
 
 
@@ -110,6 +110,9 @@ def business(request):
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
+    current_user = request.user
+    profile = MyUser.get_user()
+
     if 'business' in request.GET and request.GET["business"]:
         search_term = request.GET.get("business")
         searched_business = Business.find_business(search_term)
@@ -126,10 +129,10 @@ def view_neighbor(request):
     myuser = MyUser.get_user()
     posts = Post.get_post()
     jirani= Neighbor.get_neighbor()
-    return render(request,'hood.html',{"hood":neighbor,
-                                                "posts":posts,
-                                                 "myuser":myuser,
-                                                   "current_user":current_user})
+    return render(request,'hood.html',{"jirani":neighbor,
+                                       "posts":posts,
+                                       "myuser":myuser,
+                                       "current_user":current_user})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
