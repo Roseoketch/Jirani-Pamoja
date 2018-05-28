@@ -58,11 +58,11 @@ def create_profile(request):
             return redirect(view_profile)
     else:
         form = CreateProfileForm()
-    return render(request, 'profile/profile.html', {"upload_form":form})
+    return render(request, 'profile/create_new.html', {"upload_form":form})
 
 
 @login_required(login_url='/accounts/login/')
-def neighbor(request):
+def view_neighbor(request):
     current_user = request.user
     myuser = MyUser.get_user()
     posts = Post.get_post()
@@ -106,7 +106,7 @@ def business(request):
     current_user = request.user
     business = Business.get_business()
     return render(request,'business.html',{"current_user":current_user,
-                                           "business":delete_business})
+                                           "business":business})
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
@@ -136,6 +136,26 @@ def view_neighbor(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
+    current_user = request.user
+    profile = MyUser.get_user()
+    posts = Post.get_post()
+    return render(request,'profile/profile.html',{"profile":profile,
+                                                  "current_user":current_user,
+                                                  "posts":posts})
+
+
+@login_required(login_url='/accounts/login/')
+def business(request):
+    current_user = request.user
+    business = Business.get_business()
+    return render(request,'biz.html',{"current_user":current_user,
+                                           "business":business})
+
+
+
+
+@login_required(login_url='/accounts/login/')
+def view_profile(request):
     current_user = request.user
     profile = MyUser.get_user()
     posts = Post.get_post()

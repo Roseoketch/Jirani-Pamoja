@@ -19,6 +19,7 @@
     {% for prof in profile %} {% if prof.user.id == current_user.id%}
     <div class="row mt-5">
       <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+
       <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
         {% if profile.profile_pic %}
         <img src="{{profile.profile_pic.url}}" alt="" class="img-thumbnail" style="height:100%;">
@@ -28,7 +29,7 @@
       <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
 
       <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
-        <p>Name: <b>{{profile.name | title}}</b></p>
+        <p>Name: <b>{{profile.name }}</b></p>
         <p><b>nickname:</b> <i>{{profile.user}}</i></p>
         <p>{{profile.neighbor}} <i><b><small>({{profile.neighbor.location}})</small></b></i></p>
         <p>Type of business: <a href="#">{{profile.business}}</a></p>
