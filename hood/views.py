@@ -10,10 +10,10 @@ from .forms import CreateProfileForm, PostForm
 def welcome(request):
     current_user = request.user
     profile = MyUser.get_user()
-    posts = Post.get_post()
+    post = Post.get_post()
     return render(request,'index.html',{"current_user":current_user,
                                         "profile":profile,
-                                        "posts":posts})
+                                        "post":post})
 
 
 
@@ -128,13 +128,13 @@ def search_results(request):
 def view_neighbor(request):
     current_user = request.user
     myuser = MyUser.get_user()
-    posts = Post.get_post()
+    post= Post.get_post()
     jirani= Neighbor.get_neighbor()
     return render(request,'hood.html',{"jirani":neighbor,
-                                       "posts":posts,
+                                       "post":post,
                                        "myuser":myuser,
                                        "current_user":current_user})
-# 
+#
 # @login_required(login_url='/accounts/login/')
 # def profile(request):
 #     current_user = request.user
@@ -159,7 +159,7 @@ def business(request):
 def view_profile(request):
     current_user = request.user
     profile = MyUser.get_user()
-    posts = Post.get_post()
+    post = Post.get_post()
     return render(request,'profile/profile.html',{"profile":profile,
                                                   "current_user":current_user,
-                                                  "posts":posts})
+                                                  "post":post})

@@ -35,7 +35,7 @@
             <hr>
             <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
             <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
-                    {% for post in posts %}
+                    {% for post in post %}
                     {% if post.editor.neighbor.id  == neiba.id%}
                     <div class="card card-default" style="margin-bottom:50px">
                             <div class="card-header">
@@ -104,7 +104,7 @@
   <hr>
   <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
   <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
-    {% for post in posts %} {% if post.editor.neighbor.id == neighbor.id%}
+    {% for post in post %} {% if post.editor.neighbor.id == neighbor.id%}
     <div class="card card-default" style="margin-bottom:50px">
       <div class="card-header">
         {% if post.editor.profile_pic %}
@@ -138,7 +138,7 @@
   <hr>
   <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
   <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
-    {% for post in posts %} {% if post.editor.neighbor.id == neighbor.id%}
+    {% for post in post %} {% if post.editor.neighbor.id == neighbor.id%}
     <div class="card card-default" style="margin-bottom:50px">
       <div class="card-header">
         {% if post.editor.profile_pic %}
@@ -172,7 +172,7 @@
   <hr>
   <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
   <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
-    {% for post in posts %} {% if post.editor.neighbor.id == neiba.id%}
+    {% for post in post %} {% if post.editor.neighbor.id == neiba.id%}
     <div class="card card-default" style="margin-bottom:50px">
       <div class="card-header">
         {% if post.editor.profile_pic %}
