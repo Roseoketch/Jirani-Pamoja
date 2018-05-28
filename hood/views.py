@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http  import HttpResponseRedirect
 import datetime as dt
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from .models import MyUser,Neighbor,Post,Business
 from .forms import CreateProfileForm, PostForm
@@ -116,9 +117,9 @@ def search_results(request):
 
     if 'business' in request.GET and request.GET["business"]:
         search_term = request.GET.get("business")
-        searched_name = Business.get_business(search_term)
+        searched_name = Business.find_business(search_term)
         message = f"{search_term}"
-        return render(request,'search.html',{"message":message,"business":searched_name})
+        return render(request,'search.html',{"message":message,"business":searched_business})
 
     else:
         message = 'You havent searched for any term'
