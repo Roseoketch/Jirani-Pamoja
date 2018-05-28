@@ -40,8 +40,8 @@ def new_neighbor(request):
                 form = myNewProfile(request.post,request.FILES)
                 neighbor.user = current_user
                 neighbor.save()
-                return redirect('home')
-    return render(request, 'hood.html', {'form':form })
+            return redirect('home')
+        return render(request, 'hood.html', {'form':form })
 
 
 @login_required(login_url='/accounts/login/')
@@ -115,9 +115,9 @@ def search_results(request):
 
     if 'business' in request.GET and request.GET["business"]:
         search_term = request.GET.get("business")
-        searched_business = Business.get_business(search_term)
+        searched_name = Business.get_business(search_term)
         message = f"{search_term}"
-        return render(request,'search.html',{"message":message,"business":searched_business})
+        return render(request,'search.html',{"message":message,"business":searched_name})
 
     else:
         message = 'You havent searched for any term'
