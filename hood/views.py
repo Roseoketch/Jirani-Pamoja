@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http  import HttpResponseRedirect
 import datetime as dt
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .models import MyUser,Neighbor,Post,Business
 from .forms import CreateProfileForm, PostForm
@@ -105,7 +106,7 @@ def new_post(request):
 def business(request):
     current_user = request.user
     business = Business.get_business()
-    return render(request,'business.html',{"current_user":current_user,
+    return render(request,'biz.html',{"current_user":current_user,
                                            "business":business})
 
 @login_required(login_url='/accounts/login/')
@@ -133,15 +134,15 @@ def view_neighbor(request):
                                        "posts":posts,
                                        "myuser":myuser,
                                        "current_user":current_user})
-
-@login_required(login_url='/accounts/login/')
-def profile(request):
-    current_user = request.user
-    profile = MyUser.get_user()
-    posts = Post.get_post()
-    return render(request,'profile/profile.html',{"profile":profile,
-                                                  "current_user":current_user,
-                                                  "posts":posts})
+# 
+# @login_required(login_url='/accounts/login/')
+# def profile(request):
+#     current_user = request.user
+#     profile = MyUser.get_user()
+#     posts = Post.get_post()
+#     return render(request,'profile/profile.html',{"profile":profile,
+#                                                   "current_user":current_user,
+#                                                   "posts":posts})
 
 
 @login_required(login_url='/accounts/login/')
