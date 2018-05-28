@@ -58,7 +58,7 @@ def create_profile(request):
             return redirect(view_profile)
     else:
         form = CreateProfileForm()
-    return render(request, 'profile.html', {"upload_form":form})
+    return render(request, 'profile/profile.html', {"upload_form":form})
 
 
 @login_required(login_url='/accounts/login/')

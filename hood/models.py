@@ -72,7 +72,7 @@ class Business(models.Model):
 class MyUser(models.Model):
     name = models.CharField(max_length=60)
     id_no = models.CharField(max_length=60)
-    profile_pic = models.ImageField(upload_to ='upload/',blank=True,null=True)
+    profile_pic = models.ImageField(upload_to ='uploads/',blank=True,null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     jirani = models.ForeignKey(Neighbor,on_delete=models.CASCADE)
     business = models.ForeignKey(Business,on_delete=models.CASCADE)
