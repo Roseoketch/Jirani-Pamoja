@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-inverse">
   <div class="">
     <a class="navbar-brand" href="/"><b>Home</b></a>
 
@@ -43,19 +45,16 @@
         <a class="nav-item nav-link active" href="{% url 'neighbor' %}">Neighbor</a>
         <a class="nav-item nav-link active" href="{% url 'business' %}">Type of Business</a>
         <a class="nav-item nav-link active" href="/logout">logout</a>
+        
 
         {% else %}
+
         <div class="login">
           <p>
             <a class="nav-item nav-link active" href="{% url 'auth_login' %}">Login</a> <br><br>
             <a href="/accounts/register/" class="nav-item nav-link active">Sign Up</a>
-          </p>
 
-                <style media="screen">
-                  .login p{
-                    float: right;
-                  }
-                </style>
+          </p>
         </div>
 
       {% endif %}
