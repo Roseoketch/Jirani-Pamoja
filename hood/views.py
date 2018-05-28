@@ -3,7 +3,7 @@ from django.http  import HttpResponseRedirect
 import datetime as dt
 from django.contrib.auth.decorators import login_required
 from .models import MyUser,Neighbor,Post,Business
-
+from .forms import CreateProfileForm, PostForm
 # Create your views here.
 
 def welcome(request):
@@ -47,8 +47,8 @@ def new_neighbor(request):
 @login_required(login_url='/accounts/login/')
 def create_profile(request):
     current_user = request.user
-    if current_user.is_authenticated():
-        return HttpResponseRedirect('/')
+    # if current_user.is_authenticated():
+    #     return HttpResponseRedirect('current_user')
     if request.method == 'POST':
         form = CreateProfileForm(request.POST,request.FILES)
         if form.is_valid():
@@ -58,7 +58,7 @@ def create_profile(request):
             return redirect(view_profile)
     else:
         form = CreateProfileForm()
-    return render(request,'profile.html',{"upload_form":form})
+    return render(request, 'profile.html', {"upload_form":form})
 
 
 @login_required(login_url='/accounts/login/')
@@ -82,8 +82,12 @@ def neighbor(request):
 def new_post(request):
     current_user = request.user
     myuser = MyUser.get_user()
+    print(myuser)
+    post_form = PostForm()
     for user in myuser:
         if user.user.id == current_user.id:
+            # if current_user.is_authenticated():
+            #     return HttpResponseRedirect('current_user')
             if request.method == 'POST':
                 post_form = PostForm(request.POST,request.FILES)
                 if post_form.is_valid():
@@ -93,4 +97,4 @@ def new_post(request):
                     return redirect(index)
             else:
                 post_form = PostForm()
-            return render(request,'post.html',{"post_form":post_form})
+        return render(request,'post.html',{"post_form":post_form})
