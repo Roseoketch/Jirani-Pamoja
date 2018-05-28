@@ -41,7 +41,7 @@ def new_neighbor(request):
                 neighbor.user = current_user
                 neighbor.save()
                 return redirect('home')
-    return render(request, 'new-hood.html', {'form':form })
+    return render(request, 'hood.html', {'form':form })
 
 
 @login_required(login_url='/accounts/login/')
