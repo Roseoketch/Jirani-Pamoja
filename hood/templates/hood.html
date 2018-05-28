@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% block content %}
+{{block.super}}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +13,7 @@
   <body>
     <a href="/home"><i class="far fa-arrow-alts-circle-left">back</i><a/>
 
-    {% for neighbor in neighbors %}
+    {% for n in neighbors %}
 
   	<div class="container">
   		<header>
@@ -46,6 +52,7 @@
 
   	</div>
   {% endfor %}
+  {% endblock %}
 
   </body>
 </html>

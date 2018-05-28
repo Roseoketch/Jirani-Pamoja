@@ -5,6 +5,36 @@
     <title></title>
   </head>
   <body>
-    
+    <div class="container">
+      <div class="row"> </div>
+
+      <div class="row">
+        {% if business %}
+
+           <h2>Found {{ business|length }} of searched business {{message}}</h2>
+           {% else %}
+
+           <h2> Found none for the search business {{message}}</h2>
+           {% endif %}
+      </div>
+
+       <div class="row mt-1">
+           {% if business %}
+           {% for business in business %}
+           <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"></div>
+           <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                   <h3>{{business.name}}</h3>
+                   <p>Email us at: <i>{{business.business_email}}</i></p>
+           </div>
+           <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"></div>
+           {% endfor %}
+           {% endif %}
+       </div>
+    </div>
+    {% endblock %}
+
+
+      </div>
+    </div>
   </body>
 </html>

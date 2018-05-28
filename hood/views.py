@@ -16,8 +16,8 @@ def welcome(request):
 
 
 
-def home(request):
-    return render(request, 'home.html')
+# def home(request):
+#     return render(request, 'home.html')
 
 @login_required(login_url='/accounts/login/')
 def neighbor(request):
