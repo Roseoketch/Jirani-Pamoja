@@ -56,7 +56,7 @@ class Business(models.Model):
         self.delete()
 
     @classmethod
-    def get_business(cls):
+    def find_business(cls):
         business = Business.objects.all()
         return business
 
