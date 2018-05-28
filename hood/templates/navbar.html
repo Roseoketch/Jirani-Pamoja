@@ -6,7 +6,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>jua jirani</title
+  <link href="https://fonts.googleapis.com/css?family=Paytone+One|Playball" rel="stylesheet">
+
 </head>
 
 <body>
@@ -38,18 +40,18 @@
   </button>
 
   <div class="collapse navbar-collapse">
-    <div class="navbar-nav" style="font-family:'Montserrat',sans-serrif">
+    <div class="navbar-nav" style="font-family: 'Paytone One', sans-serif; font-size:25px;">
       {% if user.is_authenticated %}
         <!-- <a class="nav-item nav-link active" href="/">Home</a> -->
-        <a class="nav-item nav-link active" href="{% url 'profile' %}">Profile</a>
-        <a class="nav-item nav-link active" href="{% url 'neighbor' %}">Neighbor</a>
-        <a class="nav-item nav-link active" href="{% url 'business' %}">Type of Business</a>
-        <a class="nav-item nav-link active" href="/logout">logout</a>
+        <a class="nav-item nav-link active" href="{% url 'profile' %}" style="color:white;">Profile</a>
+        <a class="nav-item nav-link active" href="{% url 'neighbor' %}" style="color:white;">Neighbor</a>
+        <a class="nav-item nav-link active" href="{% url 'business' %}" style="color:white;">Type of Business</a>
+        <a class="navbar-text navbar-right" href="/logout">logout</a>
 
 
         {% else %}
 
-        <div class="login">
+        <div class="login" "navbar-text navbar-right">
           <p>
             <a class="nav-item nav-link active" href="{% url 'auth_login' %}">Login</a> <br><br>
             <a href="/accounts/register/" class="nav-item nav-link active">Sign Up</a>

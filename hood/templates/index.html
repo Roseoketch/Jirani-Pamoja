@@ -6,12 +6,13 @@
 <head>
   <meta charset="utf-8">
   <title>Jua Jirani</title>
+  <link href="https://fonts.googleapis.com/css?family=Paytone+One|Playball" rel="stylesheet">
 
 </head>
 
 <body>
   {% block content %} {{block.super}}
-  <div class="container mt-5">
+  <div class="container mt-5" style="background-color: grey;">
     <div class="row mt-5"></div>
     <div class="row mt-5">
       <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
@@ -19,14 +20,15 @@
       <div class="container-fluid" style="margin-top:10%; background-color:">
           <div class="row">
             <div class="col-lg-4">
-                <p>Want to be part of us? <a href="{% url 'new_profile' %}" class="btn btn-primary">Create Profile</a></p>
+                <p style="font-family: 'Playball', cursive;
+                 font-size:25px;color:">Want to be part of us? <a href="{% url 'new_profile' %}" class="btn btn-primary">Create Profile</a></p>
             </div>
 
             <div class="col-lg-4">
               <div class="card" style="margin-bottom:50%;">
 
                 <div class="card-header">
-                  <p>Whats on your mind? <a href="{% url 'post' %}">Post</a></p>
+                  <p style="font-family: 'Playball', cursive; font-size:25px;">Whats on your mind? <a href="{% url 'post' %}" style="color:white;">Post</a></p>
                 </div>
               </div>
             </div>
@@ -38,7 +40,7 @@
                 <div class="card-header">
                   {% if post.editor.profile_pic %}
                   <img src="{{post.editor.profile_pic.url}}" alt="" class="img-fluid rounded-circle" style="width:10%;height:10%">
-                  <a href="#">{{post.editor}}</a> {% endif %}
+                  <a href="#" style="color:white;">{{post.editor}}</a> {% endif %}
                 </div>
 
               <div class="card-body">
