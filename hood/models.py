@@ -57,8 +57,8 @@ class Business(models.Model):
 
     @classmethod
     def find_business(cls):
-        biz = Business.objects.all()
-        return biz
+        business = Business.objects.all()
+        return business
 
     @classmethod
     def search_business(cls,search_term):
